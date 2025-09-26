@@ -1,5 +1,31 @@
 
 
+// Theme toggle functionality
+function initTheme() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.querySelector('.theme-icon');
+    
+    // Check for saved theme preference or default to 'light'
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    
+    // Update icon based on current theme
+    updateThemeIcon(currentTheme, themeIcon);
+    
+    themeToggle.addEventListener('click', function() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme, themeIcon);
+    });
+}
+
+function updateThemeIcon(theme, iconElement) {
+    iconElement.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+
 function meuEscopo() {
 
     const form = document.querySelector('.form');
@@ -63,5 +89,10 @@ function meuEscopo() {
     
     form.addEventListener('submit', recebeForm);
 }
-meuEscopo();
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initTheme();
+    meuEscopo();
+});
 

@@ -44,7 +44,7 @@ TABELA IMC/
 
 - HTML5
 - CSS3
-- JavaScript (ES6+)
+- JavaScript (ES6+)e
 
 ## Aprendizados
 
