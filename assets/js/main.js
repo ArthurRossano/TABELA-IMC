@@ -1,15 +1,12 @@
 
 
-// Theme toggle functionality
 function initTheme() {
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = document.querySelector('.theme-icon');
     
-    // Check for saved theme preference or default to 'light'
     const currentTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', currentTheme);
     
-    // Update icon based on current theme
     updateThemeIcon(currentTheme, themeIcon);
     
     themeToggle.addEventListener('click', function() {
